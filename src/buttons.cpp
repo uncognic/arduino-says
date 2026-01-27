@@ -6,7 +6,7 @@ int redButtonState;
 int blueButtonState;
 int yellowButtonState;
 int whiteButtonState;
-int varButtonState;
+int orangeButtonState;
 
 void setupButtons()
 {
@@ -25,8 +25,8 @@ void setupButtons()
     pinMode(whiteButton, INPUT_PULLUP);
     pinMode(white, OUTPUT);
 
-    pinMode(varButton, INPUT_PULLUP);
-    pinMode(var, OUTPUT);
+    pinMode(orangeButton, INPUT_PULLUP);
+    pinMode(orange, OUTPUT);
 
     Serial.println("Buttons setup complete.");
 }
@@ -38,7 +38,7 @@ void readButtonState()
     blueButtonState = digitalRead(blueButton);
     yellowButtonState = digitalRead(yellowButton);
     whiteButtonState = digitalRead(whiteButton);
-    varButtonState = digitalRead(varButton);
+    orangeButtonState = digitalRead(orangeButton);
 
     Serial.println("Button states read.");
 }

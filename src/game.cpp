@@ -44,9 +44,9 @@ void checkButtons()
         Serial.println("White button pressed.");
         buttonHitTimes++;
     }
-    if (varButtonState == LOW)
+    if (orangeButtonState == LOW)
     {
-        Serial.println("Var button pressed.");
+        Serial.println("Orange button pressed.");
         buttonHitTimes++;
     }
 }
@@ -57,7 +57,7 @@ void checkStageEnd() {
         buttonHitTimes = 0;
     }
     if (stage > 6) {
-        Serial.println("Game over. You completed all stages!");
+        Serial.println("Game over. You completed all stages");
         gameRunning = false;
     }
 }

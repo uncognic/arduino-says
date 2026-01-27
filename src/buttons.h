@@ -8,7 +8,7 @@ extern int redButtonState;
 extern int blueButtonState;
 extern int yellowButtonState;
 extern int whiteButtonState;
-extern int varButtonState;
+extern int orangeButtonState;
 
 void setupButtons();
 void readButtonState();

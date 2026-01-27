@@ -12,7 +12,7 @@ int redButtonState;
 int blueButtonState;
 int yellowButtonState;
 int whiteButtonState;
-int varButtonState;
+int orangeButtonState;
 
 LiquidCrystal_I2C lcd(0x3F,16,2);
 
