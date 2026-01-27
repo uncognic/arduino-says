@@ -11,23 +11,11 @@ int orangeButtonState;
 void setupButtons()
 {
     pinMode(greenButton, INPUT_PULLUP);
-    pinMode(green, OUTPUT);
-
     pinMode(redButton, INPUT_PULLUP);
-    pinMode(red, OUTPUT);
-
     pinMode(blueButton, INPUT_PULLUP);
-    pinMode(blue, OUTPUT);
-
     pinMode(yellowButton, INPUT_PULLUP);
-    pinMode(yellow, OUTPUT);
-
     pinMode(whiteButton, INPUT_PULLUP);
-    pinMode(white, OUTPUT);
-
     pinMode(orangeButton, INPUT_PULLUP);
-    pinMode(orange, OUTPUT);
-
     Serial.println("Buttons setup complete.");
 }
 
