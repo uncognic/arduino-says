@@ -7,7 +7,6 @@
 #include "include/buttons.h"
 #include "include/game.h"
 #include "include/lcd.h"
-#include "include/led.h"
 
 void ledInit();
 void ledFlash(int ledPin);
