@@ -65,3 +65,15 @@ void checkStageEnd() {
         gameRunning = false;
     }
 }
+void flashGameLeds() {
+    if (!gameRunning) {
+        return;
+    }
+    for (int i = 0; i < stage; i++) {
+        int ledNumber = ledRandom[i];
+        int ledPin = parseLed(ledNumber);
+        ledFlash(ledPin);
+        delay(500);
+    }
+    Serial.println("Game LEDs flashed for current stage.");
+}

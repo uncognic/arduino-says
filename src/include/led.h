@@ -10,3 +10,5 @@
 #include "led.h"
 
 void ledInit();
+void ledFlash(int ledPin);
+int parseLed(int ledNumber);

@@ -12,3 +12,4 @@ extern bool gameRunning;
 void startGame();
 void checkButtons();
 void checkStageEnd();
+void flashGameLeds();
