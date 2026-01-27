@@ -4,4 +4,11 @@
 #include "const.h"
 #include "buttons.h"
 
-extern int randomNumber;
+extern int ledRandom[6];
+extern int buttonHitTimes;
+extern int stage;
+extern bool gameRunning;
+
+void startGame();
+void checkButtons();
+void checkStageEnd();

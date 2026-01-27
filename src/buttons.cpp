@@ -39,4 +39,6 @@ void readButtonState()
     yellowButtonState = digitalRead(yellowButton);
     whiteButtonState = digitalRead(whiteButton);
     varButtonState = digitalRead(varButton);
+
+    Serial.println("Button states read.");
 }
