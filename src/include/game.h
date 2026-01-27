@@ -10,6 +10,6 @@ extern int stage;
 extern bool gameRunning;
 
 void startGame();
-void checkButtons();
+void updateButtonHitTimes();
 void checkStageEnd();
 void flashGameLeds();

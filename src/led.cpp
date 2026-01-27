@@ -30,22 +30,22 @@ void ledFlash(int ledPin)
 int parseLed(int ledNumber) {
     switch (ledNumber) {
         case 1:
-            Serial.println("Green LED activated.");
+            return green;
             break;
         case 2:
-            Serial.println("Red LED activated.");
+            return red;
             break;
         case 3:
-            Serial.println("Blue LED activated.");
+            return blue;
             break;
         case 4:
-            Serial.println("Yellow LED activated.");
+            return yellow;
             break;
         case 5:
-            Serial.println("White LED activated.");
+            return white;
             break;
         case 6:
-            Serial.println("Orange LED activated.");
+            return orange;
             break;
         default:
             Serial.println("Unknown LED pin.");

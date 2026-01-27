@@ -20,6 +20,7 @@ void setup()
 void loop()
 {
   readButtonState();
-  checkButtons();
+  updateButtonHitTimes();
   checkStageEnd();
+  flashGameLeds();
 }

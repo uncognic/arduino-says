@@ -21,7 +21,7 @@ void startGame()
     gameRunning = true;
 }
 
-void checkButtons()
+void updateButtonHitTimes()
 {
     if (greenButtonState == LOW)
     {
@@ -54,6 +54,7 @@ void checkButtons()
         buttonHitTimes++;
     }
 }
+
 void checkStageEnd() {
     if (buttonHitTimes >= stage) {
         Serial.println("Stage completed.");
@@ -65,6 +66,7 @@ void checkStageEnd() {
         gameRunning = false;
     }
 }
+
 void flashGameLeds() {
     if (!gameRunning) {
         return;
@@ -75,5 +77,5 @@ void flashGameLeds() {
         ledFlash(ledPin);
         delay(500);
     }
-    Serial.println("Game LEDs flashed for current stage.");
+    Serial.println("Game LEDs flashed");
 }
