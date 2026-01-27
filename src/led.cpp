@@ -1,11 +1,11 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include "const.h"
-#include "buttons.h"
-#include "game.h"
-#include "lcd.h"
-#include "led.h"
+#include "include/const.h"
+#include "include/buttons.h"
+#include "include/game.h"
+#include "include/lcd.h"
+#include "include/led.h"
 
 void ledInit()
 {
@@ -17,4 +17,13 @@ void ledInit()
     pinMode(orange, OUTPUT);
 
     Serial.println("LEDs initialized.");
+}
+void ledFlash(int ledPin)
+{
+    digitalWrite(ledPin, HIGH);
+    delay(1000);
+    digitalWrite(ledPin, LOW);
+    Serial.print("LED on pin ");
+    Serial.print(ledPin);
+    Serial.print(" flashed");
 }

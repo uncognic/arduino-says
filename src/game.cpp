@@ -1,7 +1,11 @@
-#include "game.h"
-#include "buttons.h"
-#include "const.h"
 #include <Arduino.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include "include/const.h"
+#include "include/buttons.h"
+#include "include/game.h"
+#include "include/lcd.h"
+#include "include/led.h"
 
 int ledRandom[6];
 int buttonHitTimes;
