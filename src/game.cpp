@@ -109,9 +109,11 @@ void waitForStart()
 {
     Serial.println("Press any button to start the game");
     lcdPrint("Press any button to start");
-    while (true) {
+    while (true)
+    {
         readButtonState();
-        if (getPressedButton() != 0) {
+        if (getPressedButton() != 0)
+        {
             break;
         }
         delay(10);
