@@ -12,4 +12,5 @@
 extern LiquidCrystal_I2C lcd;
 
 void lcdInit();
-void lcdClearPrint(const char* message);
+void lcdPrint(const char* message);
+void lcdPrintInt(int number);

@@ -21,12 +21,12 @@ void startGame()
     stage = 1;
     buttonHitTimes = 0;
     gameRunning = true;
+    lcdPrint("Game started!");
     flashGameLeds();
 }
 
 int getPressedButton()
 {
-
     if (greenButtonState == LOW)
         return 1;
     if (redButtonState == LOW)
@@ -62,12 +62,14 @@ void updateButtonHitTimes()
     if (pressed == ledRandom[buttonHitTimes])
     {
         Serial.println("Correct button pressed");
+        lcdPrint("Correct button!");
         buttonHitTimes++;
         waitForRelease();
     }
     else
     {
         Serial.println("Wrong button pressed. Game over.");
+        lcdPrint("Wrong button! Game over.");
         gameRunning = false;
     }
 }
@@ -77,12 +79,14 @@ void checkStageEnd()
     if (buttonHitTimes >= stage)
     {
         Serial.println("Stage completed.");
+        lcdPrint("Stage completed!");
         stage++;
         buttonHitTimes = 0;
     }
     if (stage > 6)
     {
-        Serial.println("Game over. You completed all stages");
+        Serial.println("Game completed. You won!");
+        lcdPrint("Game completed. You won!");
         gameRunning = false;
     }
 }
@@ -104,6 +108,7 @@ void flashGameLeds()
 void waitForStart()
 {
     Serial.println("Press any button to start the game");
+    lcdPrint("Press any button to start");
     while (true) {
         readButtonState();
         if (getPressedButton() != 0) {
@@ -112,4 +117,5 @@ void waitForStart()
         delay(10);
     }
     Serial.println("Game started!");
+    lcdPrint("Game started!");
 }

@@ -15,11 +15,19 @@ void lcdInit()
     Serial.println("LCD initialized.");
 }
 
-void lcdClearPrint(const char* message)
+void lcdPrint(const char* message)
 {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(message);
-    Serial.print("LCD message: ");
+    Serial.print("LCD: ");
     Serial.println(message);
+}
+void lcdPrintInt(int number)
+{
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print(number);
+    Serial.print("LCD: ");
+    Serial.println(number);
 }

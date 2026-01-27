@@ -21,6 +21,13 @@ void setup()
 
 void loop()
 {
+  if (!gameRunning)
+  {
+    waitForStart();
+    startGame();
+  }
+  lcdPrint("Stage: ");
+  lcdPrintInt(stage);
   readButtonState();
   updateButtonHitTimes();
   checkStageEnd();
