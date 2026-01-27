@@ -1,7 +1,12 @@
 #pragma once
 
 #include <Arduino.h>
-#include "const.h"
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include "include/const.h"
+#include "include/game.h"
+#include "include/lcd.h"
+#include "include/led.h"
 
 extern int greenButtonState;
 extern int redButtonState;

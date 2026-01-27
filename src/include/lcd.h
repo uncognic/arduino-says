@@ -6,7 +6,6 @@
 #include "include/const.h"
 #include "include/buttons.h"
 #include "include/game.h"
-#include "include/lcd.h"
 #include "include/led.h"
 
 extern LiquidCrystal_I2C lcd;
@@ -14,3 +13,4 @@ extern LiquidCrystal_I2C lcd;
 void lcdInit();
 void lcdPrint(const char* message);
 void lcdPrintInt(int number);
+void lcdPrintIntAtCurPos(int number);

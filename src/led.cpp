@@ -51,5 +51,7 @@ int parseLed(int ledNumber) {
             Serial.println("Unknown LED pin.");
             break;
     }
-    return 0;
+    lcdPrint("Game error");
+    gameRunning = false;
+    return -1;
 }

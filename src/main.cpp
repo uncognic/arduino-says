@@ -27,7 +27,7 @@ void loop()
     startGame();
   }
   lcdPrint("Stage: ");
-  lcdPrintInt(stage);
+  lcdPrintIntAtCurPos(stage);
   readButtonState();
   updateButtonHitTimes();
   checkStageEnd();

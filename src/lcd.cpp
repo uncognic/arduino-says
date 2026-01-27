@@ -31,3 +31,9 @@ void lcdPrintInt(int number)
     Serial.print("LCD: ");
     Serial.println(number);
 }
+void lcdPrintIntAtCurPos(int number)
+{
+    lcd.print(number);
+    Serial.print("LCD: ");
+    Serial.println(number);
+}
