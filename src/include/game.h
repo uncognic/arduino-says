@@ -5,8 +5,8 @@
 #include "buttons.h"
 
 extern int ledRandom[6];
-extern int buttonHitTimes;
 extern int stage;
+extern int buttonHitTimes;
 extern bool gameRunning;
 
 void startGame();

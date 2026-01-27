@@ -10,5 +10,7 @@ extern int yellowButtonState;
 extern int whiteButtonState;
 extern int orangeButtonState;
 
+extern int buttonHitTimes;
+
 void setupButtons();
 void readButtonState();

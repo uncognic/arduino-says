@@ -16,7 +16,7 @@ void startGame()
 {
     for (int i = 0; i <= 6; i++)
     {
-        ledRandom[i] = random(0, 7);
+        ledRandom[i] = random(1, 7);
     }
     gameRunning = true;
 }
@@ -55,25 +55,30 @@ void updateButtonHitTimes()
     }
 }
 
-void checkStageEnd() {
-    if (buttonHitTimes >= stage) {
+void checkStageEnd()
+{
+    if (buttonHitTimes >= stage)
+    {
         Serial.println("Stage completed.");
         stage++;
         buttonHitTimes = 0;
     }
-    if (stage > 6) {
+    if (stage > 6)
+    {
         Serial.println("Game over. You completed all stages");
         gameRunning = false;
     }
 }
 
-void flashGameLeds() {
-    if (!gameRunning) {
+void flashGameLeds()
+{
+    if (!gameRunning)
+    {
         return;
     }
-    for (int i = 0; i < stage; i++) {
-        int ledNumber = ledRandom[i];
-        int ledPin = parseLed(ledNumber);
+    for (int i = 0; i < stage; i++)
+    {
+        int ledPin = parseLed(ledRandom[i]);
         ledFlash(ledPin);
         delay(500);
     }
