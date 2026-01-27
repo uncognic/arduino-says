@@ -51,4 +51,5 @@ int parseLed(int ledNumber) {
             Serial.println("Unknown LED pin.");
             break;
     }
+    return 0;
 }

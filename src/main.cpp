@@ -15,6 +15,8 @@ void setup()
   setupButtons();
   lcdInit();
   ledInit();
+  waitForStart();
+  startGame();
 }
 
 void loop()
@@ -22,5 +24,4 @@ void loop()
   readButtonState();
   updateButtonHitTimes();
   checkStageEnd();
-  flashGameLeds();
 }

@@ -14,44 +14,61 @@ bool gameRunning = false;
 
 void startGame()
 {
-    for (int i = 0; i <= 6; i++)
+    for (int i = 0; i < 6; i++)
     {
         ledRandom[i] = random(1, 7);
     }
+    stage = 1;
+    buttonHitTimes = 0;
     gameRunning = true;
+    flashGameLeds();
+}
+
+int getPressedButton()
+{
+
+    if (greenButtonState == LOW)
+        return 1;
+    if (redButtonState == LOW)
+        return 2;
+    if (blueButtonState == LOW)
+        return 3;
+    if (yellowButtonState == LOW)
+        return 4;
+    if (whiteButtonState == LOW)
+        return 5;
+    if (orangeButtonState == LOW)
+        return 6;
+    return 0;
+}
+
+void waitForRelease()
+{
+    while (getPressedButton() != 0)
+    {
+        readButtonState();
+        delay(10);
+    }
 }
 
 void updateButtonHitTimes()
 {
-    if (greenButtonState == LOW)
+    int pressed = getPressedButton();
+    if (pressed == 0)
+        return;
+    Serial.print("Button pressed: ");
+    Serial.println(pressed);
+
+    if (pressed == ledRandom[buttonHitTimes])
     {
-        Serial.println("Green button pressed.");
+        Serial.println("Correct button pressed");
         buttonHitTimes++;
+        waitForRelease();
     }
-    if (redButtonState == LOW)
+    else
     {
-        Serial.println("Red button pressed.");
-        buttonHitTimes++;
-    }
-    if (blueButtonState == LOW)
-    {
-        Serial.println("Blue button pressed.");
-        buttonHitTimes++;
-    }
-    if (yellowButtonState == LOW)
-    {
-        Serial.println("Yellow button pressed.");
-        buttonHitTimes++;
-    }
-    if (whiteButtonState == LOW)
-    {
-        Serial.println("White button pressed.");
-        buttonHitTimes++;
-    }
-    if (orangeButtonState == LOW)
-    {
-        Serial.println("Orange button pressed.");
-        buttonHitTimes++;
+        Serial.println("Wrong button pressed. Game over.");
+        gameRunning = false;
     }
 }
 
@@ -83,4 +100,16 @@ void flashGameLeds()
         delay(500);
     }
     Serial.println("Game LEDs flashed");
+}
+void waitForStart()
+{
+    Serial.println("Press any button to start the game");
+    while (true) {
+        readButtonState();
+        if (getPressedButton() != 0) {
+            break;
+        }
+        delay(10);
+    }
+    Serial.println("Game started!");
 }
