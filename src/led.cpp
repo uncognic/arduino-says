@@ -15,7 +15,9 @@ void ledInit()
     pinMode(blue, OUTPUT);
     pinMode(yellow, OUTPUT);
     pinMode(white, OUTPUT);
-    pinMode(orange, OUTPUT);
+    pinMode(orangeRed, OUTPUT);
+    pinMode(orangeGreen, OUTPUT);
+    pinMode(orangeBlue, OUTPUT);
 
     Serial.println("LEDs initialized.");
 }
@@ -45,9 +47,6 @@ int parseLed(int ledNumber) {
         case 5:
             return white;
             break;
-        case 6:
-            return orange;
-            break;
         default:
             Serial.println("Unknown LED pin.");
             break;
@@ -55,4 +54,14 @@ int parseLed(int ledNumber) {
     lcdPrint("Game error");
     gameRunning = false;
     return -1;
+}
+void varOrange() {
+    analogWrite(orangeRed, 255);
+    analogWrite(orangeGreen, 165);
+    analogWrite(orangeBlue, 0);
+}
+void varOrangeOff() {
+    analogWrite(orangeRed, 0);
+    analogWrite(orangeGreen, 0);
+    analogWrite(orangeBlue, 0);
 }

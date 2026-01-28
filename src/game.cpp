@@ -112,8 +112,15 @@ void flashGameLeds()
     }
     for (int i = 0; i < stage; i++)
     {
-        int ledPin = parseLed(ledRandom[i]);
-        ledFlash(ledPin);
+        int n = ledRandom[i];
+        if (n == 6) {
+            varOrange();
+            delay(500);
+            varOrangeOff();
+        } else {
+            int ledPin = parseLed(n);
+            ledFlash(ledPin);
+        }
     }
     Serial.println("Game LEDs flashed");
 }
@@ -154,7 +161,7 @@ void winGame()
     lcdPrint("Streak: ");
     lcdPrintIntAtCurPos(streak);
     nonBlockingDelay(2000);
-
+}
 void loseGame()
 {
     Serial.println("Wrong button pressed. Game over.");
