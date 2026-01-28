@@ -35,6 +35,8 @@ void nonBlockingDelay(unsigned long ms)
     while (millis() - start < ms)
     {
         readButtonState();
+        if (getPressedButton() != 0)
+            break;
         delay(10);
     }
 }
@@ -132,7 +134,9 @@ void waitForStart()
     Serial.println("Game started!");
     lcdPrint("Game started!");
 }
-void winGame() {
+
+void winGame()
+{
     Serial.println("Game completed. You won!");
     lcdPrint("Game completed.");
     lcdPrintAtLineTwo("You won!");
@@ -147,7 +151,9 @@ void winGame() {
     lcdPrint("Streak: ");
     lcdPrintIntAtCurPos(streak);
 }
-void loseGame() {
+
+void loseGame()
+{
     Serial.println("Wrong button pressed. Game over.");
     lcdPrint("Wrong button!");
     lcdPrintAtLineTwo("Game over.");
