@@ -15,3 +15,5 @@
 
 void buzzerInit();
 void buzzerPlayTone(int frequency, int duration);
+void buzzerPlay(int frequency);
+void buzzerStop();

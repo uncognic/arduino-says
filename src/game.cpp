@@ -76,6 +76,8 @@ void updateButtonHitTimes()
     Serial.print("Button pressed: ");
     Serial.println(pressed);
 
+    buzzerPlayTone(NOTE_C5, 100);
+
     if (pressed == ledRandom[buttonHitTimes])
     {
         Serial.println("Correct button pressed");
@@ -115,11 +117,17 @@ void flashGameLeds()
         int n = ledRandom[i];
         if (n == 6) {
             varOrange();
+            buzzerPlay(NOTE_C5);
             delay(500);
+            buzzerStop();
             varOrangeOff();
         } else {
             int ledPin = parseLed(n);
-            ledFlash(ledPin);
+            ledOn(ledPin);
+            buzzerPlay(NOTE_C5);
+            delay(500);
+            buzzerStop();
+            ledOff(ledPin);
         }
     }
     Serial.println("Game LEDs flashed");

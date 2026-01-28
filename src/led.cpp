@@ -30,6 +30,20 @@ void ledFlash(int ledPin)
     Serial.print(ledPin);
     Serial.print(" flashed");
 }
+void ledOn(int ledPin)
+{
+    digitalWrite(ledPin, HIGH);
+    Serial.print("LED on pin ");
+    Serial.print(ledPin);
+    Serial.println(" turned ON");
+}
+void ledOff(int ledPin)
+{
+    digitalWrite(ledPin, LOW);
+    Serial.print("LED on pin ");
+    Serial.print(ledPin);
+    Serial.println(" turned OFF");
+}
 int parseLed(int ledNumber) {
     switch (ledNumber) {
         case 1:

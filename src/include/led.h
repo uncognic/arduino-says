@@ -14,3 +14,5 @@ void ledFlash(int ledPin);
 int parseLed(int ledNumber);
 void varOrange();
 void varOrangeOff();
+void ledOn(int ledPin);
+void ledOff(int ledPin);

@@ -10,6 +10,7 @@
 #include "include/led.h"
 #include "include/eeprom.h"
 #include "include/buzzer.h"
+#include "include/pitches.h"
 
 void buzzerInit()
 {
@@ -25,4 +26,16 @@ void buzzerPlayTone(int frequency, int duration)
     Serial.print(duration);
     Serial.println(" ms");
     tone(buzzerPin, frequency, duration);
+}
+void buzzerPlay(int frequency)
+{
+    Serial.print("Buzzer playing tone: ");
+    Serial.print(frequency);
+    Serial.print(" Hz");
+    tone(buzzerPin, frequency);
+}
+void buzzerStop()
+{
+    Serial.println("Buzzer stopped.");
+    noTone(buzzerPin);
 }
