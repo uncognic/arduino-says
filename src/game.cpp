@@ -1,11 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include <EEPROM.h>
 #include <LiquidCrystal_I2C.h>
 #include "include/const.h"
 #include "include/buttons.h"
 #include "include/game.h"
 #include "include/lcd.h"
 #include "include/led.h"
+#include "include/eeprom.h"
 
 int ledRandom[6];
 int buttonHitTimes;
@@ -26,7 +28,15 @@ void startGame()
     lcdPrint("Game started!");
     flashGameLeds();
 }
-
+void nonBlockingDelay(unsigned long ms)
+{
+    unsigned long start = millis();
+    while (millis() - start < ms)
+    {
+        readButtonState();
+        delay(10);
+    }
+}
 int getPressedButton()
 {
     if (greenButtonState == LOW)
@@ -99,7 +109,6 @@ void flashGameLeds()
     {
         int ledPin = parseLed(ledRandom[i]);
         ledFlash(ledPin);
-        delay(500);
     }
     Serial.println("Game LEDs flashed");
 }
@@ -129,9 +138,11 @@ void winGame() {
     gameRunning = false;
     highScore++;
     streak++;
+    saveData();
+    nonBlockingDelay(2000);
     lcdPrint("High Score: ");
     lcdPrintIntAtCurPos(highScore);
-    delay(2500);
+    nonBlockingDelay(2000);
     lcdPrint("Streak: ");
     lcdPrintIntAtCurPos(streak);
 }
@@ -139,8 +150,9 @@ void loseGame() {
     Serial.println("Wrong button pressed. Game over.");
     lcdPrint("Wrong button!");
     lcdPrintAtLineTwo("Game over.");
+    nonBlockingDelay(2000);
     gameRunning = false;
     streak = 0;
+    saveData();
     lcdPrint("Streak reset :(");
-    delay(1500);
 }

@@ -24,3 +24,4 @@ void waitForRelease();
 void waitForStart();
 void winGame();
 void loseGame();
+void nonBlockingDelay(unsigned long ms);

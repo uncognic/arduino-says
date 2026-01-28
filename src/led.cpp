@@ -21,7 +21,7 @@ void ledInit()
 void ledFlash(int ledPin)
 {
     digitalWrite(ledPin, HIGH);
-    delay(1000);
+    delay(500);
     digitalWrite(ledPin, LOW);
     Serial.print("LED on pin ");
     Serial.print(ledPin);
