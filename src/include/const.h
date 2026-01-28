@@ -13,3 +13,5 @@ const int blue = 11;
 const int yellow = 12;
 const int white = 13;
 const int orange = 14;
+
+const int buzzerPin = 15;

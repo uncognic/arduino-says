@@ -9,6 +9,8 @@
 #include "include/lcd.h"
 #include "include/led.h"
 #include "include/eeprom.h"
+#include "include/buzzer.h"
+#include "include/pitches.h"
 
 int ledRandom[6];
 int buttonHitTimes;
@@ -140,26 +142,29 @@ void winGame()
     Serial.println("Game completed. You won!");
     lcdPrint("Game completed.");
     lcdPrintAtLineTwo("You won!");
+    buzzerPlayTone(NOTE_B4, 500);
+    nonBlockingDelay(2000);
     gameRunning = false;
     highScore++;
     streak++;
     saveData();
-    nonBlockingDelay(2000);
     lcdPrint("High Score: ");
     lcdPrintIntAtCurPos(highScore);
     nonBlockingDelay(2000);
     lcdPrint("Streak: ");
     lcdPrintIntAtCurPos(streak);
-}
+    nonBlockingDelay(2000);
 
 void loseGame()
 {
     Serial.println("Wrong button pressed. Game over.");
     lcdPrint("Wrong button!");
     lcdPrintAtLineTwo("Game over.");
+    buzzerPlayTone(NOTE_B2, 500);
     nonBlockingDelay(2000);
     gameRunning = false;
     streak = 0;
     saveData();
     lcdPrint("Streak reset :(");
+    nonBlockingDelay(2000);
 }

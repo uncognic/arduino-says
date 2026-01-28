@@ -9,6 +9,8 @@
 #include "include/lcd.h"
 #include "include/led.h"
 #include "include/eeprom.h"
+#include "include/buzzer.h"
+#include "include/pitches.h"
 
 LiquidCrystal_I2C lcd(0x3F,16,2);
 
@@ -18,6 +20,7 @@ void setup()
   setupButtons();
   lcdInit();
   ledInit();
+  buzzerInit();
   loadData();
   waitForStart();
   startGame();
