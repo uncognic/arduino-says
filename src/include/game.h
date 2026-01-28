@@ -12,6 +12,8 @@ extern int ledRandom[6];
 extern int stage;
 extern int buttonHitTimes;
 extern bool gameRunning;
+extern int highScore;
+extern int streak;
 
 void startGame();
 void updateButtonHitTimes();
@@ -20,3 +22,5 @@ void flashGameLeds();
 int getPressedButton();
 void waitForRelease();
 void waitForStart();
+void winGame();
+void loseGame();

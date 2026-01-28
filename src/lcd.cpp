@@ -37,3 +37,16 @@ void lcdPrintIntAtCurPos(int number)
     Serial.print("LCD: ");
     Serial.println(number);
 }
+void lcdPrintAtLineTwo(const char* message)
+{
+    lcd.setCursor(0, 1);
+    lcd.print(message);
+    Serial.print("LCD Line 2: ");
+    Serial.println(message);
+}
+void lcdPrintAtCurPos(const char* message)
+{
+    lcd.print(message);
+    Serial.print("LCD: ");
+    Serial.println(message);
+}
