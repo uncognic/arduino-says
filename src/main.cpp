@@ -17,6 +17,7 @@ LiquidCrystal_I2C lcd(0x3F,16,2);
 void setup()
 {
   Serial.begin(9600);
+  Serial.print("Test");
   setupButtons();
   lcdInit();
   ledInit();
@@ -31,6 +32,7 @@ void loop()
   if (!gameRunning)
   {
     waitForStart();
+    Serial.print("Recieved");
     startGame();
   }
   lcdPrint("Stage: ");
